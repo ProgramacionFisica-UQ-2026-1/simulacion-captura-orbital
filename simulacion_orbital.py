@@ -37,7 +37,6 @@ class Nave(CuerpoEspacial):
         if magnitud_velocidad > 0:
             direccion = self.velocidad / magnitud_velocidad
             self.velocidad -= direccion * delta_v
-            print(f"🔥 [{self.nombre}] Motores encendidos! Velocidad reducida en {delta_v}. Captura orbital iniciada.")
 
 
 class SimuladorOrbital:
@@ -119,12 +118,12 @@ if __name__ == "__main__":
     
     simulador = SimuladorOrbital(tierra_gigante, explorador)
     
-    print("Iniciando Fase 1: Acercamiento automático...")
+   
     t_frenado = simulador.simular_hasta_periastro(t_max_estimado=30, max_paso=0.05)
     
     explorador.encender_retrocohetes(delta_v=3.0)
     
-    print("Iniciando Fase 2: Órbita capturada...")
+   
     simulador.simular_tramo(t_inicio=t_frenado, t_fin=250, max_paso=0.05)
 
 
